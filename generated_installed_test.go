@@ -128,7 +128,7 @@ func TestInstalledGeneratedBindings(t *testing.T) {
 			if err != nil {
 				t.Fatalf("installed profiler: %v\n%s", err, actual)
 			}
-			want := "apiVersion: runtimeconditions.io/v1alpha1\nconditions:\n" + test.condition + "extensions:\n" + test.extensions + "kind: RuntimeConditionsProfile\nmetadata:\n    name: fixture\nworkload:\n    uri: urn:example:" + test.name + "\n    version: 1.0.0\n"
+			want := "apiVersion: runtimeconditions.io/v1alpha1\nkind: RuntimeConditionsProfile\nmetadata:\n    name: fixture\nworkload:\n    uri: urn:example:" + test.name + "\n    version: 1.0.0\nextensions:\n" + test.extensions + "conditions:\n" + test.condition
 			if string(actual) != want {
 				t.Fatalf("profile mismatch\nwant:\n%s\ngot:\n%s", want, actual)
 			}

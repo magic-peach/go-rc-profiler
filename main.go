@@ -11,7 +11,6 @@ import (
 
 	"github.com/runtimeconditions/go-rc-profiler/extensioncheck"
 	"github.com/runtimeconditions/go-rc-profiler/extractor"
-	"gopkg.in/yaml.v3"
 )
 
 var (
@@ -75,7 +74,7 @@ func runGenerate(args []string) {
 		exitErr(err)
 	}
 
-	data, err := yaml.Marshal(profile)
+	data, err := extractor.MarshalProfileYAML(profile)
 	if err != nil {
 		exitErr(err)
 	}
